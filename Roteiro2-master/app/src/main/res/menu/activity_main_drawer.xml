@@ -20,5 +20,9 @@
             android:id="@+id/nav_turmas"
             android:icon="@android:drawable/ic_menu_myplaces"
             android:title="Turmas" />
+        <item
+            android:id="@+id/nav_condutores"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="Condutores" />
     </group>
 </menu>

@@ -50,8 +50,8 @@
             android:id="@+id/action_nav_gallery_to_escolaFragment"
             app:destination="@id/escolaFragment" />
         <action
-            android:id="@+id/action_nav_gallery_to_condutoresFragment"
-            app:destination="@id/condutoresFragment" />
+            android:id="@+id/action_nav_gallery_to_cadastrarCondutorFragment"
+            app:destination="@id/cadastrarCondutorFragment" />
     </fragment>
 
     <!-- Telas Principais do Menu -->
@@ -87,6 +87,12 @@
             android:id="@+id/action_listaTurmasFragment_to_turmaAlunosFragment"
             app:destination="@id/turmaAlunosFragment" />
     </fragment>
+    
+    <fragment
+        android:id="@+id/nav_condutores"
+        android:name="com.example.roteiro.ui.condutor.ListaCondutoresFragment"
+        android:label="Condutores"
+        tools:layout="@layout/fragment_lista_condutores" />
 
     <!-- Gerenciamento de Alunos na Turma -->
     <fragment
@@ -167,6 +173,12 @@
             android:name="turmaId"
             app:argType="long" />
     </fragment>
+    
+    <fragment
+        android:id="@+id/cadastrarCondutorFragment"
+        android:name="com.example.roteiro.ui.condutor.CadastrarCondutorFragment"
+        android:label="Cadastrar Condutor"
+        tools:layout="@layout/fragment_cadastrar_condutor" />
 
     <!-- Outros Itens (Exemplos) -->
     <fragment

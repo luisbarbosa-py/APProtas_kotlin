@@ -23,15 +23,15 @@ class GalleryFragment : Fragment() {
         binding.imageButtonResponsaveis.setOnClickListener{
             findNavController().navigate(R.id.action_nav_gallery_to_responsaveisHubFragment)
         }
-        // Corrigido para a nova tela de cadastro de turma
         binding.imageButtonTurma.setOnClickListener{
             findNavController().navigate(R.id.action_nav_gallery_to_cadastrarTurmaFragment)
         }
         binding.imageButtonEscola.setOnClickListener{
             findNavController().navigate(R.id.action_nav_gallery_to_escolaFragment)
         }
+        // Correção alternativa: Navegando diretamente para o destino
         binding.imageButtonCondutor.setOnClickListener{
-            findNavController().navigate(R.id.action_nav_gallery_to_condutoresFragment)
+            findNavController().navigate(R.id.cadastrarCondutorFragment)
         }
     }
 
