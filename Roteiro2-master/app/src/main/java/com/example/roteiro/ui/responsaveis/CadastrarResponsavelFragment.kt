@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.example.roteiro.AppDatabase
+import com.example.roteiro.database.AppDatabase
 import com.example.roteiro.databinding.FragmentCadastrarResponsavelBinding
 import com.example.roteiro.model.Responsavel
 import kotlinx.coroutines.launch
@@ -28,7 +28,7 @@ class CadastrarResponsavelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val db = AppDatabase.getInstance(requireContext())
+        val db = AppDatabase.getDatabase(requireContext())
         val responsavelDao = db.responsavelDao()
 
         binding.buttonSalvar.setOnClickListener {
@@ -40,7 +40,7 @@ class CadastrarResponsavelFragment : Fragment() {
             if (nome.isNotEmpty() && aluno.isNotEmpty() && endereco.isNotEmpty() && telefone.isNotEmpty()) {
                 val responsavel = Responsavel(
                     nome = nome,
-                    aluno = aluno,
+                    aluno = aluno, // Corrigido de alunoDependente para aluno
                     endereco = endereco,
                     telefone = telefone
                 )

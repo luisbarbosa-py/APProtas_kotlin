@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.roteiro.AppDatabase
+import com.example.roteiro.database.AppDatabase // Corrigido
 import com.example.roteiro.databinding.FragmentEditAlunoBinding
 import com.example.roteiro.model.Aluno
 import kotlinx.coroutines.launch
@@ -33,7 +33,7 @@ class EditAlunoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val db = AppDatabase.getInstance(requireContext())
+        val db = AppDatabase.getDatabase(requireContext()) // Corrigido
         alunoDao = db.alunoDao()
 
         loadAluno()
@@ -64,7 +64,7 @@ class EditAlunoFragment : Fragment() {
         val telefoneResponsavel = binding.editTextTelefoneResponsavel.text.toString()
 
         if (nome.isNotEmpty() && turno.isNotEmpty() && escola.isNotEmpty() && nomeResponsavel.isNotEmpty() && telefoneResponsavel.isNotEmpty()) {
-            val updatedAluno = aluno!!.copy(
+            val updatedAluno = aluno?.copy(
                 nome = nome,
                 turno = turno,
                 escola = escola,
@@ -72,10 +72,14 @@ class EditAlunoFragment : Fragment() {
                 telefoneResponsavel = telefoneResponsavel
             )
 
-            lifecycleScope.launch {
-                alunoDao.update(updatedAluno)
-                Toast.makeText(requireContext(), "Aluno atualizado com sucesso!", Toast.LENGTH_SHORT).show()
-                findNavController().popBackStack()
+            if (updatedAluno != null) {
+                lifecycleScope.launch {
+                    alunoDao.update(updatedAluno)
+                    Toast.makeText(requireContext(), "Aluno atualizado com sucesso!", Toast.LENGTH_SHORT).show()
+                    findNavController().popBackStack()
+                }
+            } else {
+                 Toast.makeText(requireContext(), "Erro ao atualizar aluno!", Toast.LENGTH_SHORT).show()
             }
         } else {
             Toast.makeText(requireContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show()

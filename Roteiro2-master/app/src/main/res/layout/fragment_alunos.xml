@@ -1,113 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
     tools:context=".ui.alunos.AlunosFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/editTextNomeAluno"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Nome do Aluno"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textViewTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cadastro de Aluno"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-            android:layout_marginBottom="24dp"/>
+    <EditText
+        android:id="@+id/editTextTurno"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Turno"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNomeAluno"
+        app:layout_constraintStart_toStartOf="@+id/editTextNomeAluno"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNomeAluno" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutNomeAluno"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Nome do Aluno">
+    <EditText
+        android:id="@+id/editTextEscola"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Escola"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTurno"
+        app:layout_constraintStart_toStartOf="@+id/editTextTurno"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTurno" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextNomeAluno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName|textCapWords" />
+    <EditText
+        android:id="@+id/editTextResponsavel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Nome do Responsável"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEscola"
+        app:layout_constraintStart_toStartOf="@+id/editTextEscola"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEscola" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/editTextTelefoneResponsavel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Telefone do Responsável"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="@+id/editTextResponsavel"
+        app:layout_constraintStart_toStartOf="@+id/editTextResponsavel"
+        app:layout_constraintTop_toBottomOf="@+id/editTextResponsavel" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutTurno"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Turno">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTurno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text" />
+    <Button
+        android:id="@+id/buttonSalvar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Salvar Aluno"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTelefoneResponsavel"
+        app:layout_constraintStart_toStartOf="@+id/editTextTelefoneResponsavel"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTelefoneResponsavel" />
 
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutEscola"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Escola">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextEscola"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textCapSentences" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutResponsavel"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Nome do Responsável">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextResponsavel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName|textCapWords" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutTelefoneResponsavel"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:hint="Telefone do Responsável">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextTelefoneResponsavel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/buttonSalvar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:text="Salvar Cadastro"
-            android:textSize="16sp" />
-
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

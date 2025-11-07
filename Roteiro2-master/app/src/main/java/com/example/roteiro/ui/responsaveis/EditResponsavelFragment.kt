@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.roteiro.AppDatabase
+import com.example.roteiro.database.AppDatabase // Corrigido
 import com.example.roteiro.databinding.FragmentEditResponsavelBinding
 import com.example.roteiro.model.Responsavel
 import kotlinx.coroutines.launch
@@ -33,7 +33,7 @@ class EditResponsavelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val db = AppDatabase.getInstance(requireContext())
+        val db = AppDatabase.getDatabase(requireContext()) // Corrigido
         responsavelDao = db.responsavelDao()
 
         loadResponsavel()
@@ -62,17 +62,21 @@ class EditResponsavelFragment : Fragment() {
         val telefone = binding.editTextTelefone.text.toString()
 
         if (nome.isNotEmpty() && aluno.isNotEmpty() && endereco.isNotEmpty() && telefone.isNotEmpty()) {
-            val updatedResponsavel = responsavel!!.copy(
+            val updatedResponsavel = responsavel?.copy(
                 nome = nome,
                 aluno = aluno,
                 endereco = endereco,
                 telefone = telefone
             )
 
-            lifecycleScope.launch {
-                responsavelDao.update(updatedResponsavel)
-                Toast.makeText(requireContext(), "Responsável atualizado com sucesso!", Toast.LENGTH_SHORT).show()
-                findNavController().popBackStack()
+            if (updatedResponsavel != null) {
+                lifecycleScope.launch {
+                    responsavelDao.update(updatedResponsavel)
+                    Toast.makeText(requireContext(), "Responsável atualizado com sucesso!", Toast.LENGTH_SHORT).show()
+                    findNavController().popBackStack()
+                }
+            } else {
+                Toast.makeText(requireContext(), "Erro ao atualizar responsável!", Toast.LENGTH_SHORT).show()
             }
         } else {
             Toast.makeText(requireContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show()

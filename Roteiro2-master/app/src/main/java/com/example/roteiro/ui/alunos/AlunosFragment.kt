@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.example.roteiro.AppDatabase
+import com.example.roteiro.database.AppDatabase // Corrigido
 import com.example.roteiro.databinding.FragmentAlunosBinding
 import com.example.roteiro.model.Aluno
 import kotlinx.coroutines.launch
@@ -28,7 +28,8 @@ class AlunosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val db = AppDatabase.getInstance(requireContext())
+        // Corrigido
+        val db = AppDatabase.getDatabase(requireContext())
         val alunoDao = db.alunoDao()
 
         binding.buttonSalvar.setOnClickListener {

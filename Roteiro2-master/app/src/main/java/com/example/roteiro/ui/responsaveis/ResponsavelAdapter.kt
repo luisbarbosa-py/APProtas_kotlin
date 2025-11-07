@@ -1,5 +1,6 @@
 package com.example.roteiro.ui.responsaveis
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -7,7 +8,7 @@ import com.example.roteiro.databinding.ItemResponsavelBinding
 import com.example.roteiro.model.Responsavel
 
 class ResponsavelAdapter(
-    private val responsaveis: MutableList<Responsavel>,
+    private var responsaveis: List<Responsavel>,
     private val onEditClick: (Responsavel) -> Unit,
     private val onDeleteClick: (Responsavel) -> Unit
 ) : RecyclerView.Adapter<ResponsavelAdapter.ResponsavelViewHolder>() {
@@ -19,26 +20,33 @@ class ResponsavelAdapter(
 
     override fun onBindViewHolder(holder: ResponsavelViewHolder, position: Int) {
         val responsavel = responsaveis[position]
-        holder.bind(responsavel, onEditClick, onDeleteClick)
+        holder.bind(responsavel)
     }
 
     override fun getItemCount() = responsaveis.size
 
-    fun updateData(newResponsaveis: List<Responsavel>) {
-        responsaveis.clear()
-        responsaveis.addAll(newResponsaveis)
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateResponsaveis(novosResponsaveis: List<Responsavel>) {
+        responsaveis = novosResponsaveis
         notifyDataSetChanged()
     }
 
-    class ResponsavelViewHolder(private val binding: ItemResponsavelBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(responsavel: Responsavel, onEditClick: (Responsavel) -> Unit, onDeleteClick: (Responsavel) -> Unit) {
+    inner class ResponsavelViewHolder(private val binding: ItemResponsavelBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(responsavel: Responsavel) {
             binding.textViewNomeResponsavel.text = responsavel.nome
-            binding.textViewAlunoDependente.text = "Aluno: ${responsavel.aluno}"
-            binding.textViewEndereco.text = "Endereço: ${responsavel.endereco}"
-            binding.textViewTelefone.text = "Telefone: ${responsavel.telefone}"
+            binding.textViewResponsavelId.text = "#${responsavel.id}"
+            binding.textViewTelefone.text = responsavel.telefone
+            binding.textViewEndereco.text = responsavel.endereco
+            // Corrigido de responsavel.alunoDependente para responsavel.aluno
+            binding.textViewAlunoDependente.text = "Dependente: ${responsavel.aluno}"
 
-            binding.buttonEditar.setOnClickListener { onEditClick(responsavel) }
-            binding.buttonExcluir.setOnClickListener { onDeleteClick(responsavel) }
+            binding.buttonEditar.setOnClickListener {
+                onEditClick(responsavel)
+            }
+
+            binding.buttonExcluir.setOnClickListener {
+                onDeleteClick(responsavel)
+            }
         }
     }
 }

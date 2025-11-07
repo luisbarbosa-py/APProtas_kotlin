@@ -28,10 +28,6 @@ class AlunosHubFragment : Fragment() {
         binding.buttonCadastrarAluno.setOnClickListener {
             findNavController().navigate(R.id.action_alunosHubFragment_to_alunosFragment)
         }
-
-        binding.buttonListarAlunos.setOnClickListener {
-            findNavController().navigate(R.id.action_alunosHubFragment_to_listaAlunosFragment)
-        }
     }
 
     override fun onDestroyView() {

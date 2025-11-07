@@ -8,5 +8,13 @@
             android:id="@+id/nav_gallery"
             android:icon="@android:drawable/ic_menu_edit"
             android:title="Cadastros" />
+        <item
+            android:id="@+id/nav_alunos"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="Alunos" />
+        <item
+            android:id="@+id/nav_responsaveis"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="Responsáveis" />
     </group>
 </menu>

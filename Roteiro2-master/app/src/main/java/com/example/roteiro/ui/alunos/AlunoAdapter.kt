@@ -1,5 +1,6 @@
 package com.example.roteiro.ui.alunos
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -7,7 +8,7 @@ import com.example.roteiro.databinding.ItemAlunoBinding
 import com.example.roteiro.model.Aluno
 
 class AlunoAdapter(
-    private val alunos: MutableList<Aluno>,
+    private var alunos: List<Aluno>,
     private val onEditClick: (Aluno) -> Unit,
     private val onDeleteClick: (Aluno) -> Unit
 ) : RecyclerView.Adapter<AlunoAdapter.AlunoViewHolder>() {
@@ -19,26 +20,32 @@ class AlunoAdapter(
 
     override fun onBindViewHolder(holder: AlunoViewHolder, position: Int) {
         val aluno = alunos[position]
-        holder.bind(aluno, onEditClick, onDeleteClick)
+        holder.bind(aluno)
     }
 
     override fun getItemCount() = alunos.size
 
-    fun updateData(newAlunos: List<Aluno>) {
-        alunos.clear()
-        alunos.addAll(newAlunos)
-        notifyDataSetChanged()
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateAlunos(novosAlunos: List<Aluno>) {
+        alunos = novosAlunos
+        notifyDataSetChanged() // Notifica a RecyclerView que os dados mudaram
     }
 
-    class AlunoViewHolder(private val binding: ItemAlunoBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(aluno: Aluno, onEditClick: (Aluno) -> Unit, onDeleteClick: (Aluno) -> Unit) {
+    inner class AlunoViewHolder(private val binding: ItemAlunoBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(aluno: Aluno) {
             binding.textViewNomeAluno.text = aluno.nome
+            binding.textViewAlunoId.text = "#${aluno.id}"
+            binding.textViewEscola.text = aluno.escola
             binding.textViewTurno.text = "Turno: ${aluno.turno}"
-            binding.textViewEscola.text = "Escola: ${aluno.escola}"
-            binding.textViewResponsavel.text = "Responsável: ${aluno.nomeResponsavel} (${aluno.telefoneResponsavel})"
+            binding.textViewResponsavel.text = "Responsável: ${aluno.nomeResponsavel}"
 
-            binding.buttonEditar.setOnClickListener { onEditClick(aluno) }
-            binding.buttonExcluir.setOnClickListener { onDeleteClick(aluno) }
+            binding.buttonEditar.setOnClickListener {
+                onEditClick(aluno)
+            }
+
+            binding.buttonExcluir.setOnClickListener {
+                onDeleteClick(aluno)
+            }
         }
     }
 }

@@ -28,10 +28,6 @@ class ResponsaveisHubFragment : Fragment() {
         binding.buttonCadastrarResponsavel.setOnClickListener {
             findNavController().navigate(R.id.action_responsaveisHubFragment_to_cadastrarResponsavelFragment)
         }
-
-        binding.buttonListarResponsaveis.setOnClickListener {
-            findNavController().navigate(R.id.action_responsaveisHubFragment_to_listarResponsaveisFragment)
-        }
     }
 
     override fun onDestroyView() {

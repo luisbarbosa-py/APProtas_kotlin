@@ -52,46 +52,65 @@
         <action
             android:id="@+id/action_nav_gallery_to_condutoresFragment"
             app:destination="@id/condutoresFragment" />
+        <action
+            android:id="@+id/action_nav_gallery_to_cadastrarTurmaFragment"
+            app:destination="@id/cadastrarTurmaFragment" />
     </fragment>
 
+    <!-- Telas Principais do Menu -->
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.roteiro.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
-        android:id="@+id/nav_contato"
-        android:name="com.example.roteiro.ui.contato.contatoFragment"
-        android:label="@string/contato"
-        tools:layout="@layout/fragment_contato" />
-
-    <!-- Alunos -->
-    <fragment
-        android:id="@+id/alunosHubFragment"
-        android:name="com.example.roteiro.ui.alunos.AlunosHubFragment"
-        android:label="Alunos"
-        tools:layout="@layout/fragment_alunos_hub" >
-        <action
-            android:id="@+id/action_alunosHubFragment_to_alunosFragment"
-            app:destination="@id/alunosFragment" />
-        <action
-            android:id="@+id/action_alunosHubFragment_to_listaAlunosFragment"
-            app:destination="@id/listaAlunosFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/alunosFragment"
-        android:name="com.example.roteiro.ui.alunos.AlunosFragment"
-        android:label="Cadastrar Aluno"
-        tools:layout="@layout/fragment_alunos" />
-    <fragment
-        android:id="@+id/listaAlunosFragment"
+        android:id="@+id/nav_alunos"
         android:name="com.example.roteiro.ui.alunos.ListaAlunosFragment"
-        android:label="Listar Alunos"
+        android:label="Alunos"
         tools:layout="@layout/fragment_lista_alunos" >
         <action
             android:id="@+id/action_listaAlunosFragment_to_editAlunoFragment"
             app:destination="@id/editAlunoFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_responsaveis"
+        android:name="com.example.roteiro.ui.responsaveis.ListaResponsaveisFragment"
+        android:label="Responsáveis"
+        tools:layout="@layout/fragment_lista_responsaveis" >
+        <action
+            android:id="@+id/action_listaResponsaveisFragment_to_editResponsavelFragment"
+            app:destination="@id/editResponsavelFragment" />
+    </fragment>
+
+
+    <!-- Hubs de Cadastro -->
+    <fragment
+        android:id="@+id/alunosHubFragment"
+        android:name="com.example.roteiro.ui.alunos.AlunosHubFragment"
+        android:label="Hub de Alunos">
+        <action
+            android:id="@+id/action_alunosHubFragment_to_alunosFragment"
+            app:destination="@id/alunosFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/responsaveisHubFragment"
+        android:name="com.example.roteiro.ui.responsaveis.ResponsaveisHubFragment"
+        android:label="Hub de Responsáveis">
+        <action
+            android:id="@+id/action_responsaveisHubFragment_to_cadastrarResponsavelFragment"
+            app:destination="@id/cadastrarResponsavelFragment" />
+    </fragment>
+
+    <!-- Fluxos de Cadastro e Edição -->
+    <fragment
+        android:id="@+id/cadastrarResponsavelFragment"
+        android:name="com.example.roteiro.ui.responsaveis.CadastrarResponsavelFragment"
+        android:label="Cadastrar Responsável"
+        tools:layout="@layout/fragment_cadastrar_responsavel" />
+
+    <fragment
+        android:id="@+id/alunosFragment"
+        android:name="com.example.roteiro.ui.alunos.AlunosFragment"
+        android:label="Cadastrar Aluno"
+        tools:layout="@layout/fragment_alunos" />
+
     <fragment
         android:id="@+id/editAlunoFragment"
         android:name="com.example.roteiro.ui.alunos.EditAlunoFragment"
@@ -102,33 +121,6 @@
             app:argType="long" />
     </fragment>
 
-    <!-- Responsaveis -->
-    <fragment
-        android:id="@+id/responsaveisHubFragment"
-        android:name="com.example.roteiro.ui.responsaveis.ResponsaveisHubFragment"
-        android:label="Responsáveis"
-        tools:layout="@layout/fragment_responsaveis_hub" >
-        <action
-            android:id="@+id/action_responsaveisHubFragment_to_cadastrarResponsavelFragment"
-            app:destination="@id/cadastrarResponsavelFragment" />
-        <action
-            android:id="@+id/action_responsaveisHubFragment_to_listarResponsaveisFragment"
-            app:destination="@id/listarResponsaveisFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/cadastrarResponsavelFragment"
-        android:name="com.example.roteiro.ui.responsaveis.CadastrarResponsavelFragment"
-        android:label="Cadastrar Responsável"
-        tools:layout="@layout/fragment_cadastrar_responsavel" />
-    <fragment
-        android:id="@+id/listarResponsaveisFragment"
-        android:name="com.example.roteiro.ui.responsaveis.ListarResponsaveisFragment"
-        android:label="Listar Responsáveis"
-        tools:layout="@layout/fragment_listar_responsaveis" >
-        <action
-            android:id="@+id/action_listarResponsaveisFragment_to_editResponsavelFragment"
-            app:destination="@id/editResponsavelFragment" />
-    </fragment>
     <fragment
         android:id="@+id/editResponsavelFragment"
         android:name="com.example.roteiro.ui.responsaveis.EditResponsavelFragment"
@@ -139,8 +131,13 @@
             app:argType="long" />
     </fragment>
 
+    <fragment
+        android:id="@+id/cadastrarTurmaFragment"
+        android:name="com.example.roteiro.ui.turma.CadastrarTurmaFragment"
+        android:label="Cadastrar Turma"
+        tools:layout="@layout/fragment_cadastrar_turma" />
 
-    <!-- Outros -->
+    <!-- Outros Itens (Exemplos) -->
     <fragment
         android:id="@+id/turmaFragment"
         android:name="com.example.roteiro.TurmaFragment"
