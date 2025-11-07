@@ -44,17 +44,14 @@
             android:id="@+id/action_nav_gallery_to_responsaveisHubFragment"
             app:destination="@id/responsaveisHubFragment" />
         <action
-            android:id="@+id/action_nav_gallery_to_turmaFragment"
-            app:destination="@id/turmaFragment" />
+            android:id="@+id/action_nav_gallery_to_cadastrarTurmaFragment"
+            app:destination="@id/cadastrarTurmaFragment" />
         <action
             android:id="@+id/action_nav_gallery_to_escolaFragment"
             app:destination="@id/escolaFragment" />
         <action
             android:id="@+id/action_nav_gallery_to_condutoresFragment"
             app:destination="@id/condutoresFragment" />
-        <action
-            android:id="@+id/action_nav_gallery_to_cadastrarTurmaFragment"
-            app:destination="@id/cadastrarTurmaFragment" />
     </fragment>
 
     <!-- Telas Principais do Menu -->
@@ -76,6 +73,30 @@
         <action
             android:id="@+id/action_listaResponsaveisFragment_to_editResponsavelFragment"
             app:destination="@id/editResponsavelFragment" />
+    </fragment>
+    
+    <fragment
+        android:id="@+id/nav_turmas"
+        android:name="com.example.roteiro.ui.turma.ListaTurmasFragment"
+        android:label="Turmas"
+        tools:layout="@layout/fragment_lista_turmas" >
+        <action
+            android:id="@+id/action_listaTurmasFragment_to_editTurmaFragment"
+            app:destination="@id/editTurmaFragment" />
+        <action
+            android:id="@+id/action_listaTurmasFragment_to_turmaAlunosFragment"
+            app:destination="@id/turmaAlunosFragment" />
+    </fragment>
+
+    <!-- Gerenciamento de Alunos na Turma -->
+    <fragment
+        android:id="@+id/turmaAlunosFragment"
+        android:name="com.example.roteiro.ui.turma.TurmaAlunosFragment"
+        android:label="Alunos da Turma"
+        tools:layout="@layout/fragment_turma_alunos">
+        <argument
+            android:name="turmaId"
+            app:argType="long" />
     </fragment>
 
 
@@ -136,6 +157,16 @@
         android:name="com.example.roteiro.ui.turma.CadastrarTurmaFragment"
         android:label="Cadastrar Turma"
         tools:layout="@layout/fragment_cadastrar_turma" />
+        
+    <fragment
+        android:id="@+id/editTurmaFragment"
+        android:name="com.example.roteiro.ui.turma.EditTurmaFragment"
+        android:label="Editar Turma"
+        tools:layout="@layout/fragment_edit_turma">
+        <argument
+            android:name="turmaId"
+            app:argType="long" />
+    </fragment>
 
     <!-- Outros Itens (Exemplos) -->
     <fragment

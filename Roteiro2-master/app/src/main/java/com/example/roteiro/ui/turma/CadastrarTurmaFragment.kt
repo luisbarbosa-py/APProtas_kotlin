@@ -7,8 +7,12 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.example.roteiro.R
+import com.example.roteiro.database.AppDatabase
 import com.example.roteiro.databinding.FragmentCadastrarTurmaBinding
+import com.example.roteiro.model.Turma
+import kotlinx.coroutines.launch
 
 class CadastrarTurmaFragment : Fragment() {
 
@@ -42,14 +46,26 @@ class CadastrarTurmaFragment : Fragment() {
     }
 
     private fun salvarTurma() {
+        val nomeTurma = binding.editTextNomeTurma.text.toString()
         val turnoSelecionado = binding.autoCompleteTextViewTurno.text.toString()
 
-        if (turnoSelecionado.isNotEmpty()) {
-            // Lógica para salvar a turma no banco de dados virá aqui
-            Toast.makeText(context, "Turma do turno '$turnoSelecionado' salva!", Toast.LENGTH_SHORT).show()
+        if (nomeTurma.isNotEmpty() && turnoSelecionado.isNotEmpty()) {
+            lifecycleScope.launch {
+                val turma = Turma(nome = nomeTurma, turno = turnoSelecionado)
+                val db = AppDatabase.getDatabase(requireContext())
+                db.turmaDao().insert(turma)
+
+                Toast.makeText(context, "Turma '$nomeTurma' ('$turnoSelecionado') salva!", Toast.LENGTH_SHORT).show()
+                clearFields()
+            }
         } else {
-            Toast.makeText(context, "Por favor, selecione um turno.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun clearFields() {
+        binding.editTextNomeTurma.text?.clear()
+        binding.autoCompleteTextViewTurno.text?.clear()
     }
 
     override fun onDestroyView() {

@@ -6,17 +6,21 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.roteiro.dao.AlunoDao
 import com.example.roteiro.dao.ResponsavelDao
+import com.example.roteiro.dao.TurmaDao
 import com.example.roteiro.dao.UsuarioDao
 import com.example.roteiro.model.Aluno
 import com.example.roteiro.model.Responsavel
+import com.example.roteiro.model.Turma
+import com.example.roteiro.model.TurmaAlunoCrossRef
 import com.example.roteiro.model.Usuario
 
-@Database(entities = [Aluno::class, Usuario::class, Responsavel::class], version = 1, exportSchema = false)
+@Database(entities = [Aluno::class, Usuario::class, Responsavel::class, Turma::class, TurmaAlunoCrossRef::class], version = 3, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun alunoDao(): AlunoDao
     abstract fun usuarioDao(): UsuarioDao
     abstract fun responsavelDao(): ResponsavelDao
+    abstract fun turmaDao(): TurmaDao
 
     companion object {
         @Volatile
@@ -28,7 +32,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "roteiro_database"
-                ).build()
+                ) 
+                .fallbackToDestructiveMigration()
+                .build()
                 INSTANCE = instance
                 instance
             }

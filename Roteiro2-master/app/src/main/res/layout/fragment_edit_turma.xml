@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.turma.CadastrarTurmaFragment">
+    tools:context=".ui.turma.EditTurmaFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutNomeTurma"
@@ -49,11 +49,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/buttonSalvarTurma"
+        android:id="@+id/buttonAtualizarTurma"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Salvar Turma"
+        android:text="Atualizar Turma"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayoutTurno"
         app:layout_constraintStart_toStartOf="@+id/textInputLayoutTurno"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTurno" />

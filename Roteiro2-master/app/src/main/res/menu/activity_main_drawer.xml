@@ -16,5 +16,9 @@
             android:id="@+id/nav_responsaveis"
             android:icon="@android:drawable/ic_menu_agenda"
             android:title="Responsáveis" />
+        <item
+            android:id="@+id/nav_turmas"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="Turmas" />
     </group>
 </menu>
