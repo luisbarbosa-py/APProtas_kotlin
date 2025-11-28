@@ -9,7 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.roteiro.database.AppDatabase // Corrigido
+import com.example.roteiro.database.AppDatabase
+import com.example.roteiro.dao.ResponsavelDao
 import com.example.roteiro.databinding.FragmentEditResponsavelBinding
 import com.example.roteiro.model.Responsavel
 import kotlinx.coroutines.launch
@@ -19,7 +20,7 @@ class EditResponsavelFragment : Fragment() {
     private var _binding: FragmentEditResponsavelBinding? = null
     private val binding get() = _binding!!
     private val args: EditResponsavelFragmentArgs by navArgs()
-    private lateinit var responsavelDao: com.example.roteiro.dao.ResponsavelDao
+    private lateinit var responsavelDao: ResponsavelDao
     private var responsavel: Responsavel? = null
 
     override fun onCreateView(
@@ -33,7 +34,7 @@ class EditResponsavelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val db = AppDatabase.getDatabase(requireContext()) // Corrigido
+        val db = AppDatabase.getDatabase(requireContext())
         responsavelDao = db.responsavelDao()
 
         loadResponsavel()
@@ -48,8 +49,8 @@ class EditResponsavelFragment : Fragment() {
             responsavel = responsavelDao.getById(args.responsavelId)
             responsavel?.let {
                 binding.editTextNomeResponsavel.setText(it.nome)
-                binding.editTextAlunoDependente.setText(it.aluno)
                 binding.editTextEndereco.setText(it.endereco)
+                binding.editTextNumero.setText(it.numero)
                 binding.editTextTelefone.setText(it.telefone)
             }
         }
@@ -57,15 +58,15 @@ class EditResponsavelFragment : Fragment() {
 
     private fun updateResponsavel() {
         val nome = binding.editTextNomeResponsavel.text.toString()
-        val aluno = binding.editTextAlunoDependente.text.toString()
         val endereco = binding.editTextEndereco.text.toString()
+        val numero = binding.editTextNumero.text.toString()
         val telefone = binding.editTextTelefone.text.toString()
 
-        if (nome.isNotEmpty() && aluno.isNotEmpty() && endereco.isNotEmpty() && telefone.isNotEmpty()) {
+        if (nome.isNotEmpty() && endereco.isNotEmpty() && numero.isNotEmpty() && telefone.isNotEmpty()) {
             val updatedResponsavel = responsavel?.copy(
                 nome = nome,
-                aluno = aluno,
                 endereco = endereco,
+                numero = numero,
                 telefone = telefone
             )
 

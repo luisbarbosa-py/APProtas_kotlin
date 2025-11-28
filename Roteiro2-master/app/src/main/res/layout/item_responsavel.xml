@@ -52,13 +52,6 @@
             android:layout_height="wrap_content"
             tools:text="Rua Exemplo, 123" />
 
-        <TextView
-            android:id="@+id/textViewAlunoDependente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            tools:text="Dependente: Nome do Aluno" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

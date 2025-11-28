@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roteiro.databinding.ItemAlunoBinding
 import com.example.roteiro.model.Aluno
+import com.example.roteiro.model.AlunoComResponsavel
 
 class AlunoAdapter(
-    private var alunos: List<Aluno>,
+    private var alunos: List<AlunoComResponsavel>,
     private val onEditClick: (Aluno) -> Unit,
     private val onDeleteClick: (Aluno) -> Unit
 ) : RecyclerView.Adapter<AlunoAdapter.AlunoViewHolder>() {
@@ -19,25 +20,28 @@ class AlunoAdapter(
     }
 
     override fun onBindViewHolder(holder: AlunoViewHolder, position: Int) {
-        val aluno = alunos[position]
-        holder.bind(aluno)
+        val alunoComResponsavel = alunos[position]
+        holder.bind(alunoComResponsavel)
     }
 
     override fun getItemCount() = alunos.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateAlunos(novosAlunos: List<Aluno>) {
+    fun updateAlunos(novosAlunos: List<AlunoComResponsavel>) {
         alunos = novosAlunos
-        notifyDataSetChanged() // Notifica a RecyclerView que os dados mudaram
+        notifyDataSetChanged()
     }
 
     inner class AlunoViewHolder(private val binding: ItemAlunoBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(aluno: Aluno) {
+        fun bind(alunoComResponsavel: AlunoComResponsavel) {
+            val aluno = alunoComResponsavel.aluno
+            val responsavel = alunoComResponsavel.responsavel
+
             binding.textViewNomeAluno.text = aluno.nome
             binding.textViewAlunoId.text = "#${aluno.id}"
             binding.textViewEscola.text = aluno.escola
             binding.textViewTurno.text = "Turno: ${aluno.turno}"
-            binding.textViewResponsavel.text = "Responsável: ${aluno.nomeResponsavel}"
+            binding.textViewResponsavel.text = "Responsável: ${responsavel?.nome ?: "Não definido"}"
 
             binding.buttonEditar.setOnClickListener {
                 onEditClick(aluno)

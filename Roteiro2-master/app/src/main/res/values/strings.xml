@@ -32,4 +32,12 @@
         <item>Tarde</item>
         <item>Noite</item>
     </string-array>
+
+    <string-array name="periodos_escola_array">
+        <item>Manhã</item>
+        <item>Tarde</item>
+        <item>Noite</item>
+        <item>Manhã e Tarde</item>
+        <item>Manhã, Tarde e Noite</item>
+    </string-array>
 </resources>

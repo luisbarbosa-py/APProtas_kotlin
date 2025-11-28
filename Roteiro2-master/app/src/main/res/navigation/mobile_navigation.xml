@@ -47,8 +47,8 @@
             android:id="@+id/action_nav_gallery_to_cadastrarTurmaFragment"
             app:destination="@id/cadastrarTurmaFragment" />
         <action
-            android:id="@+id/action_nav_gallery_to_escolaFragment"
-            app:destination="@id/escolaFragment" />
+            android:id="@+id/action_nav_gallery_to_cadastrarEscolaFragment"
+            app:destination="@id/cadastrarEscolaFragment" />
         <action
             android:id="@+id/action_nav_gallery_to_cadastrarCondutorFragment"
             app:destination="@id/cadastrarCondutorFragment" />
@@ -93,6 +93,12 @@
         android:name="com.example.roteiro.ui.condutor.ListaCondutoresFragment"
         android:label="Condutores"
         tools:layout="@layout/fragment_lista_condutores" />
+
+    <fragment
+        android:id="@+id/nav_escolas"
+        android:name="com.example.roteiro.ui.escola.ListaEscolasFragment"
+        android:label="Escolas"
+        tools:layout="@layout/fragment_lista_escolas" />
 
     <!-- Gerenciamento de Alunos na Turma -->
     <fragment
@@ -179,6 +185,12 @@
         android:name="com.example.roteiro.ui.condutor.CadastrarCondutorFragment"
         android:label="Cadastrar Condutor"
         tools:layout="@layout/fragment_cadastrar_condutor" />
+
+    <fragment
+        android:id="@+id/cadastrarEscolaFragment"
+        android:name="com.example.roteiro.ui.escola.CadastrarEscolaFragment"
+        android:label="Cadastrar Escola"
+        tools:layout="@layout/fragment_cadastrar_escola" />
 
     <!-- Outros Itens (Exemplos) -->
     <fragment

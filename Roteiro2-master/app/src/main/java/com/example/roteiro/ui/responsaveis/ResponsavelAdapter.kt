@@ -36,9 +36,7 @@ class ResponsavelAdapter(
             binding.textViewNomeResponsavel.text = responsavel.nome
             binding.textViewResponsavelId.text = "#${responsavel.id}"
             binding.textViewTelefone.text = responsavel.telefone
-            binding.textViewEndereco.text = responsavel.endereco
-            // Corrigido de responsavel.alunoDependente para responsavel.aluno
-            binding.textViewAlunoDependente.text = "Dependente: ${responsavel.aluno}"
+            binding.textViewEndereco.text = "${responsavel.endereco}, ${responsavel.numero}"
 
             binding.buttonEditar.setOnClickListener {
                 onEditClick(responsavel)

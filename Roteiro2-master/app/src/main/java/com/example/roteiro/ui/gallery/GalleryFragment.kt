@@ -26,8 +26,9 @@ class GalleryFragment : Fragment() {
         binding.imageButtonTurma.setOnClickListener{
             findNavController().navigate(R.id.action_nav_gallery_to_cadastrarTurmaFragment)
         }
+        // Corrigido para a nova tela de cadastro de escola
         binding.imageButtonEscola.setOnClickListener{
-            findNavController().navigate(R.id.action_nav_gallery_to_escolaFragment)
+            findNavController().navigate(R.id.action_nav_gallery_to_cadastrarEscolaFragment)
         }
         // Correção alternativa: Navegando diretamente para o destino
         binding.imageButtonCondutor.setOnClickListener{

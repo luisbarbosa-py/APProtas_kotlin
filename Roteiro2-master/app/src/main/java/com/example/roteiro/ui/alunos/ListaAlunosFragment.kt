@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roteiro.databinding.FragmentListaAlunosBinding
+import com.example.roteiro.model.AlunoComResponsavel
 
 class ListaAlunosFragment : Fragment() {
 
@@ -55,8 +56,8 @@ class ListaAlunosFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        alunoViewModel.alunos.observe(viewLifecycleOwner) { alunos ->
-            alunos?.let {
+        alunoViewModel.alunos.observe(viewLifecycleOwner) { alunosComResponsaveis ->
+            alunosComResponsaveis?.let {
                 alunoAdapter.updateAlunos(it)
             }
         }
@@ -65,5 +66,10 @@ class ListaAlunosFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        alunoViewModel.carregarAlunos()
     }
 }

@@ -33,15 +33,15 @@ class CadastrarResponsavelFragment : Fragment() {
 
         binding.buttonSalvar.setOnClickListener {
             val nome = binding.editTextNomeResponsavel.text.toString()
-            val aluno = binding.editTextAlunoDependente.text.toString()
             val endereco = binding.editTextEndereco.text.toString()
+            val numero = binding.editTextNumero.text.toString()
             val telefone = binding.editTextTelefone.text.toString()
 
-            if (nome.isNotEmpty() && aluno.isNotEmpty() && endereco.isNotEmpty() && telefone.isNotEmpty()) {
+            if (nome.isNotEmpty() && endereco.isNotEmpty() && numero.isNotEmpty() && telefone.isNotEmpty()) {
                 val responsavel = Responsavel(
                     nome = nome,
-                    aluno = aluno, // Corrigido de alunoDependente para aluno
                     endereco = endereco,
+                    numero = numero,
                     telefone = telefone
                 )
 
@@ -58,8 +58,8 @@ class CadastrarResponsavelFragment : Fragment() {
 
     private fun clearFields() {
         binding.editTextNomeResponsavel.text?.clear()
-        binding.editTextAlunoDependente.text?.clear()
         binding.editTextEndereco.text?.clear()
+        binding.editTextNumero.text?.clear()
         binding.editTextTelefone.text?.clear()
     }
 

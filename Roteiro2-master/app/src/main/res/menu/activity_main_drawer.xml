@@ -24,5 +24,9 @@
             android:id="@+id/nav_condutores"
             android:icon="@android:drawable/ic_menu_myplaces"
             android:title="Condutores" />
+        <item
+            android:id="@+id/nav_escolas"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="Escolas" />
     </group>
 </menu>
