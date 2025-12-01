@@ -70,7 +70,8 @@ class EditAlunoFragment : Fragment() {
                 responsavelSelecionado = alunoComResponsavel.responsavel
                 responsavelSelecionado?.let {
                     binding.autoCompleteTextViewResponsavel.setText(it.nome, false) // false para não disparar o listener
-                    binding.editTextEnderecoResponsavel.setText("${it.endereco}, ${it.numero}")
+                    binding.editTextEnderecoResponsavel.setText(it.endereco)
+                    binding.editTextNumeroResponsavel.setText(it.numero)
                     binding.editTextTelefoneResponsavel.setText(it.telefone)
                 }
 
@@ -85,7 +86,8 @@ class EditAlunoFragment : Fragment() {
                 val nomeSelecionado = parent.getItemAtPosition(position) as String
                 responsavelSelecionado = todosResponsaveis.find { it.nome == nomeSelecionado }
                 responsavelSelecionado?.let {
-                    binding.editTextEnderecoResponsavel.setText("${it.endereco}, ${it.numero}")
+                    binding.editTextEnderecoResponsavel.setText(it.endereco)
+                    binding.editTextNumeroResponsavel.setText(it.numero)
                     binding.editTextTelefoneResponsavel.setText(it.telefone)
                 }
             }

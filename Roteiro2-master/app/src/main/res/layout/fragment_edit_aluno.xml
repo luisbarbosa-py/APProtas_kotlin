@@ -35,7 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="Endereço do Responsável"
+        android:hint="Endereço"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayoutResponsavel"
         app:layout_constraintStart_toStartOf="@+id/textInputLayoutResponsavel"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutResponsavel">
@@ -50,15 +50,55 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutNumeroResponsavel"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Número"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayoutEnderecoResponsavel"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayoutEnderecoResponsavel"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEnderecoResponsavel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNumeroResponsavel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:focusable="false" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutBairroResponsavel"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Bairro"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayoutNumeroResponsavel"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayoutNumeroResponsavel"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutNumeroResponsavel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextBairroResponsavel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:focusable="false" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutTelefoneResponsavel"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="Telefone do Responsável"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayoutEnderecoResponsavel"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayoutEnderecoResponsavel"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEnderecoResponsavel">
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayoutBairroResponsavel"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayoutBairroResponsavel"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutBairroResponsavel">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextTelefoneResponsavel"

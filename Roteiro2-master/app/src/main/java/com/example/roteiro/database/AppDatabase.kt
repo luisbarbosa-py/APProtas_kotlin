@@ -18,7 +18,7 @@ import com.example.roteiro.model.Turma
 import com.example.roteiro.model.TurmaAlunoCrossRef
 import com.example.roteiro.model.Usuario
 
-@Database(entities = [Aluno::class, Usuario::class, Responsavel::class, Turma::class, TurmaAlunoCrossRef::class, Condutor::class, Escola::class], version = 7, exportSchema = false)
+@Database(entities = [Aluno::class, Usuario::class, Responsavel::class, Turma::class, TurmaAlunoCrossRef::class, Condutor::class, Escola::class], version = 9, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun alunoDao(): AlunoDao

@@ -8,7 +8,9 @@ data class Responsavel(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val nome: String,
+    val cep: String,
     val endereco: String,
     val numero: String,
+    val bairro: String,
     val telefone: String
 )

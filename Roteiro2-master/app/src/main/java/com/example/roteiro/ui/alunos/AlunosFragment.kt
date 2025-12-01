@@ -61,7 +61,9 @@ class AlunosFragment : Fragment() {
                 responsavelSelecionado = responsaveis.find { it.nome == nomeSelecionado }
 
                 responsavelSelecionado?.let {
-                    binding.editTextEnderecoResponsavel.setText("${it.endereco}, ${it.numero}")
+                    binding.editTextEnderecoResponsavel.setText(it.endereco)
+                    binding.editTextNumeroResponsavel.setText(it.numero)
+                    binding.editTextBairroResponsavel.setText(it.bairro)
                     binding.editTextTelefoneResponsavel.setText(it.telefone)
                 }
             }
@@ -105,6 +107,8 @@ class AlunosFragment : Fragment() {
     private fun clearFields() {
         binding.autoCompleteTextViewResponsavel.text.clear()
         binding.editTextEnderecoResponsavel.text?.clear()
+        binding.editTextNumeroResponsavel.text?.clear()
+        binding.editTextBairroResponsavel.text?.clear()
         binding.editTextTelefoneResponsavel.text?.clear()
         binding.editTextNomeAluno.text?.clear()
         binding.editTextEscola.text?.clear()
