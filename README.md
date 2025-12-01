@@ -6,7 +6,44 @@ Este aplicativo tem como objetivo gerenciar as rotas de transporte escolar, perm
 
 ## Telas Principais
 
-(Aqui você pode adicionar os prints das telas que mencionamos)
+### Tela Principal
+![Tela Principal](screenshots/activity_main.png)
+
+### Tela de Login
+![Tela de Login](screenshots/fragment_login.png)
+
+### Tela Home
+![Tela Home](screenshots/fragment_home.png)
+
+### Lista de Turmas
+![Lista de Turmas](screenshots/fragment_lista_turmas.png)
+
+### Alunos da Turma
+![Alunos da Turma](screenshots/fragment_turma_alunos.png)
+
+### Lista de Alunos
+![Lista de Alunos](screenshots/fragment_lista_alunos.png)
+
+### Lista de Condutores
+![Lista de Condutores](screenshots/fragment_lista_condutores.png)
+
+### Lista de Escolas
+![Lista de Escolas](screenshots/fragment_lista_escolas.png)
+
+### Lista de Responsáveis
+![Lista de Responsáveis](screenshots/fragment_lista_responsaveis.png)
+
+### Cadastro de Turma
+![Cadastro de Turma](screenshots/fragment_cadastrar_turma.png)
+
+### Cadastro de Condutor
+![Cadastro de Condutor](screenshots/fragment_cadastrar_condutor.png)
+
+### Cadastro de Escola
+![Cadastro de Escola](screenshots/fragment_cadastrar_escola.png)
+
+### Cadastro de Responsável
+![Cadastro de Responsável](screenshots/fragment_cadastrar_responsavel.png)
 
 ## Tecnologias Utilizadas
 
