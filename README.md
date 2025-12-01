@@ -11,40 +11,52 @@ Este aplicativo tem como objetivo gerenciar as rotas de transporte escolar, perm
 
 
 ### Tela de Login
-![Tela de Login](screenshots/fragment_login.png)
+<img width="261" height="528" alt="tela-login" src="https://github.com/user-attachments/assets/73051ee4-897f-459d-b6b1-a3f7c6193928" />
+
 
 ### Tela Home
-![Tela Home](screenshots/fragment_home.png)
+<img width="259" height="526" alt="tela-home" src="https://github.com/user-attachments/assets/99a8c582-77a5-4085-b43a-f241da669a52" />
+
 
 ### Lista de Turmas
-![Lista de Turmas](screenshots/fragment_lista_turmas.png)
+<img width="265" height="439" alt="lista-turmas" src="https://github.com/user-attachments/assets/f0af5e7f-872d-4e88-a6b7-ba3e02a69d49" />
+
 
 ### Alunos da Turma
-![Alunos da Turma](screenshots/fragment_turma_alunos.png)
+<img width="264" height="439" alt="alunos-turma" src="https://github.com/user-attachments/assets/a9183cfb-44fb-4f0e-b5b2-22523a68d8a0" />
+
 
 ### Lista de Alunos
-![Lista de Alunos](screenshots/fragment_lista_alunos.png)
+<img width="253" height="371" alt="lista-alunos" src="https://github.com/user-attachments/assets/8b94d03e-ba14-4257-aa0e-d7ba038d1927" />
+
 
 ### Lista de Condutores
-![Lista de Condutores](screenshots/fragment_lista_condutores.png)
+<img width="265" height="444" alt="lista-condutores" src="https://github.com/user-attachments/assets/d01ff15a-48e9-4eb0-8187-f7c1444d8182" />
+
 
 ### Lista de Escolas
-![Lista de Escolas](screenshots/fragment_lista_escolas.png)
+<img width="257" height="371" alt="lista-escolas" src="https://github.com/user-attachments/assets/0b1e046e-4574-44a9-b769-656058a2d22d" />
+
 
 ### Lista de Responsáveis
-![Lista de Responsáveis](screenshots/fragment_lista_responsaveis.png)
+<img width="261" height="437" alt="lista-responsaveis" src="https://github.com/user-attachments/assets/c2e8ec7d-edde-4f9b-8db7-9b2c4a96679b" />
+
 
 ### Cadastro de Turma
-![Cadastro de Turma](screenshots/fragment_cadastrar_turma.png)
+<img width="263" height="385" alt="cadastro-turma" src="https://github.com/user-attachments/assets/b777bf27-193b-49e5-b801-c15bdd48f482" />
+
 
 ### Cadastro de Condutor
-![Cadastro de Condutor](screenshots/fragment_cadastrar_condutor.png)
+<img width="260" height="384" alt="cadastro-condutor" src="https://github.com/user-attachments/assets/060840eb-f4fa-424d-b8f7-da93ff71dfaf" />
+
 
 ### Cadastro de Escola
-![Cadastro de Escola](screenshots/fragment_cadastrar_escola.png)
+<img width="261" height="419" alt="cadastro-escola" src="https://github.com/user-attachments/assets/f7fc54cf-2efb-4c58-aa2d-c4980151e08e" />
+
 
 ### Cadastro de Responsável
-![Cadastro de Responsável](screenshots/fragment_cadastrar_responsavel.png)
+<img width="263" height="467" alt="cadastro-responsaveis" src="https://github.com/user-attachments/assets/5f84618c-ba46-47a1-8141-608d557565aa" />
+
 
 ## Tecnologias Utilizadas
 
